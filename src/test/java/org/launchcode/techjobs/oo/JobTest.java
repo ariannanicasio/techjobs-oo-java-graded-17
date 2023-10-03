@@ -49,19 +49,48 @@ public class JobTest {
         Assert.assertFalse(testJob.equals(testJob2));
     }
     @Test
-    public void testToStringStartsAndEndsWithNewLine() {
+    public void testToStringContainsCorrectLabelsAndData() {
         Job testJob = new Job("Product tester",
                 new Employer("ACME"),
                 new Location("Desert"),
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
         String testToString = testJob.toString();
-        String expectedToString = "\r\nID:  " + testJob.getId() + "\n" +
+        String expectedToString = System.lineSeparator()+"ID:  " + testJob.getId() + "\n" +
                 "Name: " + testJob.getName() + "\n" +
                 "Employer: " + testJob.getEmployer() + "\n" +
                 "Location: " + testJob.getLocation() + "\n" +
                 "Position Type: " + testJob.getPositionType() + "\n" +
-                "Core Competency: " + testJob.getCoreCompetency()+"\r\n";
+                "Core Competency: " + testJob.getCoreCompetency()+System.lineSeparator();
          Assert.assertEquals(testToString, expectedToString);
+    }
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job testJob = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        String testJobToString = testJob.toString();
+        int expectedLength = testJobToString.length();
+        char expectedCharacter = 'I';
+        char expectedEndCharacter = 'e';
+        Assert.assertEquals(testJobToString.charAt(1), expectedCharacter);
+        Assert.assertEquals(testJobToString.charAt(expectedLength - 2), expectedEndCharacter);
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job testJob = new Job("Product tester",
+                new Employer(""),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        String expectedToString = System.lineSeparator()+"ID:  " + testJob.getId() + "\n" +
+                "Name: " + testJob.getName() + "\n" +
+                "Employer: Data not available\n" +
+                "Location: " + testJob.getLocation() + "\n" +
+                "Position Type: " + testJob.getPositionType() + "\n" +
+                "Core Competency: " + testJob.getCoreCompetency()+System.lineSeparator();
+        Assert.assertEquals(testJob.toString(), expectedToString);
     }
 }

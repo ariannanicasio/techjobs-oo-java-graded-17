@@ -44,7 +44,21 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+    public String nullChecker(String value) {
+        if(value.isEmpty()){
+            return "Data not available";
+        }
+        return value;
+    };
 
+    public String toString() {
+        return System.lineSeparator()+"ID:  " + nullChecker(String.valueOf(id)) + "\n" +
+                "Name: " + nullChecker(String.valueOf(name))+ "\n" +
+                "Employer: " + nullChecker(employer.toString()) + "\n" +
+                "Location: " + nullChecker(location.toString()) + "\n" +
+                "Position Type: " + nullChecker(positionType.toString()) + "\n" +
+                "Core Competency: " + nullChecker(coreCompetency.toString()) +System.lineSeparator();
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
