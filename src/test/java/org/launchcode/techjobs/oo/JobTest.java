@@ -56,7 +56,7 @@ public class JobTest {
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
         String testToString = testJob.toString();
-        String expectedToString = System.lineSeparator()+"ID:  " + testJob.getId() + "\n" +
+        String expectedToString = System.lineSeparator()+"ID: " + testJob.getId() + "\n" +
                 "Name: " + testJob.getName() + "\n" +
                 "Employer: " + testJob.getEmployer() + "\n" +
                 "Location: " + testJob.getLocation() + "\n" +
@@ -85,7 +85,7 @@ public class JobTest {
                 new Location("Desert"),
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
-        String expectedToString = System.lineSeparator()+"ID:  " + testJob.getId() + "\n" +
+        String expectedToString = System.lineSeparator()+"ID: " + testJob.getId() + "\n" +
                 "Name: " + testJob.getName() + "\n" +
                 "Employer: Data not available\n" +
                 "Location: " + testJob.getLocation() + "\n" +

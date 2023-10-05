@@ -52,7 +52,7 @@ public class Job {
     };
 
     public String toString() {
-        return System.lineSeparator()+"ID:  " + nullChecker(String.valueOf(id)) + "\n" +
+        return System.lineSeparator()+"ID: " + nullChecker(String.valueOf(id)) + "\n" +
                 "Name: " + nullChecker(String.valueOf(name))+ "\n" +
                 "Employer: " + nullChecker(employer.toString()) + "\n" +
                 "Location: " + nullChecker(location.toString()) + "\n" +
